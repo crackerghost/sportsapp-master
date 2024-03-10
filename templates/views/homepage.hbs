@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="homepagestyle.css">
+</head>
+<body>
+   
+     <header>
+            <img class="logo" src="/img/logo.png"  height="50px" width="50px" alt="Logo">
+               <div class="dashboard" >
+                <a href="/dashboard" class="user" style="text-align: center; cursor: pointer; color: black; width: 100px; height: 50px; display: block; line-height: 50px; text-decoration: none; margin: 0 auto;">Hi {{userData.name}}!</a>
+
+                 
+        </div>
+    </header>
+   <main>
+    
+    <div class="main-right">
+         <h1  style="color: white; font-size:60px">Find Players Nearby</h1>
+       
+        <a href="/players"><button class="find-btn" >Explore Players</button></a>
+    </div>
+   </main>
+  
+  
+    <script src="script.js"></script>
+<script>
+    async function checkAuthStatus() {
+      try {
+        const response = await fetch('/check-auth');
+        const data = await response.json();
+
+        if (data.authenticated) {
+           
+         
+        } else {
+
+            window.location.href = '/login2'
+
+
+          
+        }
+      } catch (error) {
+        console.error('Error checking authentication status:', error);
+      }
+    }
+
+    async function login() {
+      // Perform your login logic, e.g., redirect to the login page
+    }
+
+    async function logout() {
+      // Perform your logout logic, e.g., redirect to the logout page
+    }
+
+    // Check authentication status when the page loads
+    window.onload = checkAuthStatus;
+  </script>
+</body>
+</html>
